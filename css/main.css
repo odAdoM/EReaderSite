@@ -2,14 +2,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
   background-color: #1e1e1e;
-  padding: 10em 0 15em 0;
 }
 .about__content {
   display: flex;
-  width: 100%;
-  height: 100%;
 }
 .about__content--left {
   width: 50%;
@@ -18,14 +14,16 @@
 }
 .about__content--right {
   width: 50%;
-  padding: 8em 0 0 6em;
+  padding: 8em 6em 0 6em;
 }
 .about p {
-  width: 50rem;
+  margin-top: 3em;
   font-size: 1.4rem;
   color: #fff;
-  line-height: 2.5em;
-  margin-bottom: 2.8em;
+  line-height: 2.3em;
+}
+.about p:first-of-type {
+  margin-top: 4em;
 }
 
 .book {
@@ -33,7 +31,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 6em;
   text-align: center;
 }
 .book img {
@@ -73,8 +70,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  padding: 10em 0 15em 0;
 }
 .books__content {
   text-align: center;
@@ -99,21 +94,21 @@
 }
 .books__content--list {
   display: flex;
+  gap: 12em;
 }
 .books__content .main-btn {
   margin-top: 10em;
 }
 
 .footer {
-  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 15rem 0 3rem 0;
+  padding: 15em 0 3em 0;
 }
 .footer__header {
   text-align: center;
-  margin-bottom: 15rem;
+  margin-bottom: 15em;
 }
 .footer__header .section-border::after {
   left: 50%;
@@ -121,8 +116,8 @@
 }
 .footer__content {
   display: flex;
-  width: 60%;
-  margin-bottom: 10rem;
+  width: 90%;
+  margin-bottom: 10em;
 }
 .footer__content--social {
   width: 30%;
@@ -130,7 +125,7 @@
 .footer__content--social .address div {
   display: flex;
   align-items: center;
-  margin-bottom: 2rem;
+  margin-bottom: 2em;
 }
 .footer__content--social .address div i {
   font-size: 3.5rem;
@@ -177,21 +172,27 @@
 .footer__content--form form .input-group input {
   width: 47%;
   height: 6rem;
-  margin-bottom: 3rem;
+  margin-bottom: 3em;
 }
 .footer__content--form form .ta {
   resize: none;
-  height: 15rem;
-  margin-bottom: 3rem;
+  height: 18rem;
+  margin-bottom: 3em;
+  font: inherit;
 }
 .footer__content--form form .input-group input,
 .footer__content--form form .ta {
   background-color: #1a1a1a;
-  border: none;
-  padding: 1rem 2rem;
+  padding: 0.7em 1.4em;
   font-size: 1.4rem;
   color: #fff;
   border-radius: 0.5rem;
+  border: none;
+  line-height: 1.5;
+  letter-spacing: 0.1em;
+}
+.footer__content--form form .ta {
+  padding-top: 1.4em;
 }
 .footer__content--form form .input-group input::-moz-placeholder, .footer__content--form form .ta::-moz-placeholder {
   color: #686868;
@@ -201,23 +202,22 @@
   color: #686868;
 }
 .footer__content--form form .form-btn {
-  width: 20rem;
-  height: 5rem;
+  padding: 1.2em 6em;
   margin-left: auto;
   background-color: #32b0ce;
   border: none;
   border-radius: 0.5rem;
   font-weight: bold;
   color: #fff;
-  letter-spacing: 0.1rem;
-  box-shadow: 0 0 0.5rem 1 rem rgba(0, 0, 0, 0.1);
+  letter-spacing: 0.1em;
+  box-shadow: 0 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
   cursor: pointer;
 }
 .footer__content--form form .form-btn:active {
   transform: translateY(0.2rem);
 }
 .footer__bottom {
-  width: 60%;
+  width: 90%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -230,164 +230,175 @@
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  width: 15rem;
-  height: 5rem;
+  padding: 1em;
   border: none;
   background: none;
   font-size: 1.4rem;
   color: #ccc;
   text-transform: uppercase;
-  letter-spacing: 0.1rem;
+  letter-spacing: 0.1em;
+}
+.footer__bottom .btt-btn i {
+  margin-left: 0.6em;
 }
 
 .testimonials {
   position: relative;
+  width: 100%;
+  background-color: #1e1e1e;
+}
+.testimonials__content {
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
-  min-height: 160vh;
-  padding: 10em 0 15em 0;
-  background-color: #1e1e1e;
 }
-.testimonials__top {
+.testimonials__content--top {
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 5em;
 }
-.testimonials__top .section-num {
+.testimonials__content--top .section-num {
   margin-right: 10em;
 }
-.testimonials__top .section-num span {
+.testimonials__content--top .section-num span {
   background-image: url("./../images/text-bg-4.jpg");
 }
-.testimonials__feedback {
+.testimonials__content--feedback {
+  width: 68%;
   position: relative;
-  display: flex;
-  flex-direction: column;
+  display: grid;
   align-items: center;
+  row-gap: 3rem;
+  grid-template-columns: [p1] 2fr [p2] 3fr [p3];
+  grid-template-rows: auto auto;
+  grid-template-areas: "photo title" "quote quote";
 }
-.testimonials__feedback--top {
-  display: flex;
-  align-items: center;
-  padding-left: 7em;
-  margin-bottom: 5em;
-}
-.testimonials__feedback--top img {
-  width: 30rem;
-  height: 30rem;
+.testimonials__content--feedback .feedback-img {
+  grid-area: photo;
+  width: 92%;
+  aspect-ratio: 1;
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: 2rem;
   border: 0.8rem solid #202020;
-  margin-right: 3rem;
   filter: grayscale(100%);
   cursor: pointer;
   transition: filter 1s;
-  z-index: 1;
+  z-index: 2;
 }
-.testimonials__feedback--top img:hover {
+.testimonials__content--feedback .feedback-img:hover {
   filter: grayscale(0);
 }
-.testimonials__feedback--top .feedback-heading {
-  display: flex;
-  width: 50%;
-  text-align: center;
+.testimonials__content--feedback .feedback-heading {
+  grid-area: title;
 }
-.testimonials__feedback--top .feedback-heading h1 {
+.testimonials__content--feedback .feedback-heading h1 {
   font-size: 7rem;
   color: #fff;
+  text-align: center;
 }
-.testimonials__feedback--top .feedback-heading h1 span {
+.testimonials__content--feedback .feedback-heading h1 span {
   font-family: "Kaushan Script", cursive;
   font-size: 8rem;
   color: #32b0ce;
   letter-spacing: 0.05em;
 }
-.testimonials__feedback--bottom .quote-bg {
+.testimonials__content--feedback .quote-wrapper {
+  grid-area: quote;
+  justify-self: end;
+  position: relative;
+  width: 100%;
+}
+.testimonials__content--feedback .quote-wrapper .quote-bg {
   position: absolute;
-  top: 26rem;
-  left: 4.5rem;
-  width: 35rem;
-  height: 40rem;
+  bottom: -4.2rem;
+  left: -3rem;
+  width: 44%;
+  height: 145%;
   background-color: #32b0ce;
+  opacity: 0.5;
   border-radius: 3em;
 }
-.testimonials__feedback--bottom .quote-bg::after {
+.testimonials__content--feedback .quote-wrapper .quote-bg::after {
   content: "";
   position: absolute;
   width: 0;
   height: 0;
-  left: 1rem;
-  bottom: -3rem;
+  left: 5%;
+  bottom: -2.7rem;
   border-left: 4rem solid transparent;
   border-right: 4rem solid transparent;
   border-bottom: 4rem solid #32b0ce;
   transform: rotate(-45deg);
 }
-.testimonials__feedback--bottom .quote {
-  position: absolute;
-  top: 33rem;
-  left: 8rem;
-  width: 80rem;
-  height: 28rem;
+.testimonials__content--feedback .quote-wrapper .quote {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   background-color: #282828;
   border-radius: 3rem;
-  padding: 3rem 0;
+  padding: 4em 0;
+  z-index: 2;
 }
-.testimonials__feedback--bottom .quote::after {
+.testimonials__content--feedback .quote-wrapper .quote::after {
   content: "";
   position: absolute;
   width: 0;
   height: 0;
-  left: 0;
-  bottom: -3rem;
+  left: 0.5%;
+  bottom: -2.7rem;
   border-left: 4rem solid transparent;
   border-right: 4rem solid transparent;
   border-bottom: 4rem solid #282828;
   transform: rotate(-45deg);
+  z-index: 2;
 }
-.testimonials__feedback--bottom .quote__header {
-  display: flex;
-  align-items: center;
-  margin-top: 2rem;
+.testimonials__content--feedback .quote-wrapper .quote__header {
+  position: relative;
+  width: 100%;
 }
-.testimonials__feedback--bottom .quote__header i {
+.testimonials__content--feedback .quote-wrapper .quote__header i {
+  position: absolute;
+  top: -1.5rem;
   font-size: 8rem;
   color: #32b0ce;
 }
-.testimonials__feedback--bottom .quote__header h1 {
+.testimonials__content--feedback .quote-wrapper .quote__header i:nth-of-type(1) {
+  left: -1.2rem;
+}
+.testimonials__content--feedback .quote-wrapper .quote__header i:nth-of-type(2) {
+  right: -1.2rem;
+}
+.testimonials__content--feedback .quote-wrapper .quote__header h1 {
   font-size: 2rem;
   text-transform: uppercase;
   color: #fff;
-  letter-spacing: 0.2rem;
-  padding: 0 10rem;
-}
-.testimonials__feedback--bottom .quote__body p {
-  width: 50rem;
-  font-size: 1.2rem;
-  color: #fff;
-  margin-bottom: 2.5rem;
+  letter-spacing: 0.1em;
   text-align: center;
-  line-height: 2.5rem;
+  margin: 0 auto;
 }
-.testimonials__feedback--bottom .quote__starts i {
-  font-size: 1.8rem;
+.testimonials__content--feedback .quote-wrapper .quote__body {
+  margin-top: 3rem;
+}
+.testimonials__content--feedback .quote-wrapper .quote__body p {
+  display: block;
+  width: 58%;
+  margin: 0 auto;
+  font-size: 1.3rem;
+  line-height: 2em;
+  text-align: center;
+  color: #fff;
+}
+.testimonials__content--feedback .quote-wrapper .quote__stars i {
+  margin: 2em 0.25em 0.5em;
+  font-size: 1.6rem;
   color: #32b0ce;
-  margin: 0 0.5rem;
 }
 .testimonials .main-btn {
-  position: absolute;
-  left: 50%;
-  bottom: 15rem;
-  transform: translateX(-50%);
-}
-.testimonials .main-btn:active {
-  transform: translate(-50%, 0.2rem);
+  margin-top: 17rem;
 }
 
 *,
@@ -405,6 +416,17 @@
 :root {
   font-size: 62.5%;
   scroll-behavior: smooth;
+}
+
+.wrapper {
+  position: relative;
+  max-width: 1200px;
+  width: 85%;
+  margin: 0 auto;
+}
+
+.section-padding {
+  padding: 10em 0 15em 0;
 }
 
 img {
@@ -445,25 +467,25 @@ body::-webkit-scrollbar-track {
   font-size: 1.2rem;
   font-weight: 300;
   text-transform: uppercase;
-  letter-spacing: 0.5rem;
+  letter-spacing: 0.4em;
   color: #32b0ce;
 }
 
 .section-heading--lg {
-  margin: 3rem 0;
+  margin: 0.8em 0;
   font-size: 3rem;
   font-weight: 300;
   text-transform: uppercase;
-  letter-spacing: 0.3rem;
+  letter-spacing: 0.1em;
   color: #fff;
 }
 
 .section-border {
   position: relative;
-  width: 50rem;
+  width: 100%;
   height: 0.1rem;
   background-color: #333;
-  margin-bottom: 3rem;
+  margin-bottom: 3em;
 }
 .section-border::after {
   content: "";
