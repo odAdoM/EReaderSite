@@ -1,0 +1,23 @@
+@use 'settings' as s;
+
+.books-header {
+	background: s.$color-gradient-gray, url('./../images/books-bg.jpg') center no-repeat;
+}
+
+.books-section {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 15rem 0;
+
+	.books-list {
+		// background-color: pink;
+		width: 70%;
+		display: flex;
+		justify-content: center;
+		flex-wrap: wrap;
+		gap: 10em 5em;
+
+		//_book.scss
+	}
+}

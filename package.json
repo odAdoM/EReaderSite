@@ -1,0 +1,26 @@
+{
+	"name": "strona_ereader",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"deploy": "gh-pages -d dist"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/odAdoM/EReaderSite.git"
+	},
+	"keywords": [],
+	"author": "marthee",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/odAdoM/EReaderSite/issues"
+	},
+	"homepage": "https://github.com/odAdoM/EReaderSite#readme",
+	"devDependencies": {
+		"browser-sync": "^3.0.3",
+		"gh-pages": "^6.3.0",
+		"gulp": "^4.0.2"
+	}
+}

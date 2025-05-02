@@ -1,0 +1,21 @@
+:root {
+  --color-blue: #32b0ce;
+}
+
+.books-header {
+  background: linear-gradient(rgba(33, 33, 33, 0.7), rgba(33, 33, 33, 0.9) 80%), url("./../images/books-bg.jpg") center no-repeat;
+}
+
+.books-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15rem 0;
+}
+.books-section .books-list {
+  width: 70%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10em 5em;
+}/*# sourceMappingURL=bookspage.css.map */

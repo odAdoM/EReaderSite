@@ -1,0 +1,20 @@
+// === COLORS ===
+
+:root {
+	--color-blue: #32b0ce;
+}
+
+$color-blue: var(--color-blue);
+$color-dark-gray-base: #212121;
+$color-dark-gray--darker-1: #1e1e1e;
+$color-dark-gray--darker-2: #1a1a1a;
+
+$color-contrast: rgb(255, 196, 0);
+
+$color-gradient-gray: linear-gradient(rgba(33, 33, 33, 0.7), rgba(33, 33, 33, 0.9) 80%);
+
+// === GENERAL 'WIDTHS' & GRID CONTAINER SETTINGS ===
+
+$padding-inline: 4rem;
+$content-max-width: 1200px;
+$breakout-max-width: 1400px;

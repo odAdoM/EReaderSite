@@ -1,0 +1,150 @@
+:root {
+  --color-blue: #32b0ce;
+}
+
+.about-header {
+  background: linear-gradient(rgba(33, 33, 33, 0.7), rgba(33, 33, 33, 0.9) 80%), url("./../images/about-bg.jpg") center no-repeat;
+}
+
+.about-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15em 0;
+  overflow: hidden;
+}
+.about-section__header {
+  text-align: right;
+}
+.about-section__header .section-border::after {
+  left: auto;
+  right: 0;
+  transform: translateX(0);
+}
+.about-section__features {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: -5rem;
+}
+.about-section__features .feature {
+  position: relative;
+  width: 20rem;
+  height: 20rem;
+  background-color: #181818;
+  margin: 3rem;
+  border-radius: 3rem;
+  box-shadow: 0 0.5rem 1 rem rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.about-section__features .feature:nth-child(2), .about-section__features .feature:nth-child(6) {
+  transform: translateY(6rem);
+}
+.about-section__features .feature:nth-child(3), .about-section__features .feature:nth-child(7) {
+  transform: translateY(12rem);
+}
+.about-section__features .feature:nth-child(4), .about-section__features .feature:nth-child(8) {
+  transform: translateY(18rem);
+}
+.about-section__features .feature::before {
+  content: "";
+  position: absolute;
+  top: -40%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 15rem;
+  height: 15rem;
+  background-color: #1f1f1f;
+  border-radius: 50%;
+  opacity: 0.7;
+}
+.about-section__features .feature span {
+  z-index: 1;
+  font-size: 6rem;
+  color: var(--color-blue);
+}
+.about-section__features .feature h3 {
+  font-size: 1.8rem;
+  font-weight: 300;
+  color: #fff;
+  width: 70%;
+  text-align: center;
+}
+.about-section__team {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 200%;
+  min-height: 200rem;
+  margin-top: -20rem;
+  background: linear-gradient(to bottom, rgba(33, 33, 33, 0.7), rgba(19, 27, 29, 0.9), rgba(33, 33, 33, 0.9)), url("./../images/team-bg.jpg") center no-repeat;
+  background-size: cover;
+  -webkit-clip-path: polygon(100% 50%, 0 0, 0 100%);
+          clip-path: polygon(100% 50%, 0 0, 0 100%);
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.9);
+}
+.about-section__team h2 {
+  font-family: "Kaushan Script", cursive;
+  font-size: 10rem;
+  color: var(--color-blue);
+  text-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.5);
+  margin: -15rem 0 15rem 0;
+}
+.about-section__team .members {
+  max-width: 40%;
+  display: flex;
+}
+.about-section__team .members .member {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 6rem;
+}
+.about-section__team .members .member img {
+  width: 100%;
+  aspect-ratio: 1;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 50%;
+  filter: grayscale(100%);
+  cursor: pointer;
+  transition: filter 1s;
+}
+.about-section__team .members .member img:hover {
+  filter: grayscale(0);
+}
+.about-section__team .members .member__name {
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  color: #fff;
+  letter-spacing: 0.1rem;
+  margin-top: 1.7em;
+}
+.about-section__team .members .member__position {
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  color: var(--color-blue);
+  letter-spacing: 0.07em;
+  margin-top: 0.7em;
+}
+
+.footer-about {
+  margin-top: -60rem;
+}
+.footer-about .footer__header {
+  margin-left: auto;
+  margin-right: 0;
+  text-align: right;
+}
+.footer-about .footer__header .section-border::after {
+  left: auto;
+  right: 0;
+  transform: translateX(0);
+}/*# sourceMappingURL=aboutpage.css.map */
