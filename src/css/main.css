@@ -574,7 +574,9 @@
 .testimonials__content {
   height: 100%;
   display: grid;
-  gap: 2%;
+  -moz-column-gap: 2%;
+       column-gap: 2%;
+  row-gap: 3rem;
   grid-template: "num" auto "header" auto "quote" auto "btn" auto/1fr;
 }
 .testimonials__content .section-num {
@@ -731,6 +733,7 @@
   grid-area: btn;
   justify-self: center;
   align-self: center;
+  background-color: orange;
 }
 
 @media (min-width: 430px) {
@@ -745,9 +748,6 @@
   }
 }
 @media (min-width: 540px) {
-  .testimonials__content {
-    row-gap: 3rem;
-  }
   .testimonials__content--feedback {
     width: 80%;
   }

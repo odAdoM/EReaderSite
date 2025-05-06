@@ -7,7 +7,8 @@
 	&__content {
 		height: 100%;
 		display: grid;
-		gap: 2%;
+		column-gap: 2%;
+		row-gap: 3rem;
 		grid-template:
 			'num' auto
 			'header' auto
@@ -197,6 +198,8 @@
 			grid-area: btn;
 			justify-self: center;
 			align-self: center;
+
+			background-color: orange;
 		}
 	}
 }
@@ -227,7 +230,6 @@
 @media (min-width: 540px) {
 	.testimonials {
 		&__content {
-			row-gap: 3rem;
 			&--feedback {
 				width: 80%;
 			}

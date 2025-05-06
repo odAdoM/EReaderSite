@@ -8,10 +8,10 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	padding: 15rem 0;
+	padding: 10em 0;
+	background-color: s.$color-dark-gray--darker-1;
 
 	.books-list {
-		// background-color: pink;
 		width: 70%;
 		display: flex;
 		justify-content: center;
@@ -19,5 +19,20 @@
 		gap: 10em 5em;
 
 		//_book.scss
+	}
+}
+
+.footer-books {
+	margin-top: -2rem;
+}
+
+//()()()()()()()()()()()()(  @media  )()()()()()()()()()()()()
+
+@media (min-width: 900px) {
+	.books-section {
+		padding: 15rem 0;
+	}
+	.footer-books {
+		margin-top: 0rem;
 	}
 }
