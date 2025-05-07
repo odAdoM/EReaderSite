@@ -733,7 +733,6 @@
   grid-area: btn;
   justify-self: center;
   align-self: center;
-  background-color: orange;
 }
 
 @media (min-width: 430px) {
