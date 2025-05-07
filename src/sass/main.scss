@@ -5,7 +5,7 @@
 @use 'main/footer' as footer;
 @use 'main/testimonials' as testimonials;
 
-@import 'gridcnt';
+@use 'gridcnt';
 
 *,
 *::after,
@@ -25,6 +25,18 @@
 // *:focus {
 // 	outline: 3px dashed red !important;
 // }
+
+/* .box {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 50px;
+	height: 50px;
+	border-radius: 8px;
+	background: conic-gradient(red, orange, yellow, green, blue);
+	z-index: 100;
+} */
 
 :root {
 	font-size: 62.5%;
@@ -168,9 +180,6 @@ body::-webkit-scrollbar-track {
 		}
 	}
 
-	/* &:focus {
-		outline: none;
-	} */
 	&:focus-visible {
 		outline: 2px solid s.$color-contrast;
 		outline-offset: 0.5em;
@@ -299,29 +308,6 @@ body::-webkit-scrollbar-track {
 				align-items: flex-start;
 
 				a {
-					&:last-child {
-						position: relative;
-						padding: 1rem 1rem 1rem 6rem;
-
-						&::before {
-							content: '';
-							position: absolute;
-							width: 4rem;
-							height: 0.2rem;
-							top: 50%;
-							left: 1rem;
-							transform: translateY(-50%);
-							background-color: #fff;
-							transition: background-color 0.3s;
-						}
-
-						@media (hover: hover) and (pointer: fine) {
-							&:hover::before {
-								background-color: s.$color-blue;
-							}
-						}
-					}
-
 					padding-right: 1rem;
 					margin: 1em 0;
 					font-size: clamp(1.4rem, 0.25vw + 1.32rem, 1.8rem); //1.8rem;
@@ -334,11 +320,12 @@ body::-webkit-scrollbar-track {
 					transition-delay: 0s, 0s;
 					transition-duration: 0s, 0.7s;
 					transition-timing-function: ease, ease-in;
+
+					-webkit-tap-highlight-color: transparent;
+
 					@media (hover: hover) and (pointer: fine) {
 						transition-duration: 0.3s, 0.7s;
 					}
-
-					-webkit-tap-highlight-color: transparent;
 
 					span {
 						position: relative;
@@ -375,6 +362,29 @@ body::-webkit-scrollbar-track {
 						}
 					}
 
+					&:last-child {
+						position: relative;
+						padding: 1rem 1rem 1rem 6rem;
+
+						&::before {
+							content: '';
+							position: absolute;
+							width: 4rem;
+							height: 0.2rem;
+							top: 50%;
+							left: 1rem;
+							transform: translateY(-50%);
+							background-color: #fff;
+							transition: background-color 0.3s;
+						}
+
+						@media (hover: hover) and (pointer: fine) {
+							&:hover::before {
+								background-color: s.$color-blue;
+							}
+						}
+					}
+
 					&:hover {
 						color: s.$color-blue;
 					}
@@ -382,6 +392,7 @@ body::-webkit-scrollbar-track {
 					&:hover span::before {
 						width: 92%;
 					}
+
 					@media (hover: hover) and (pointer: fine) {
 						&:hover span::before {
 							transition: width 0.3s;
@@ -555,9 +566,6 @@ body::-webkit-scrollbar-track {
 				text-shadow: 0 0 0.5rem rgba($color: #000000, $alpha: 0.2);
 			}
 
-			/* &:focus {
-				outline: none;
-			} */
 			&:focus-visible {
 				outline: 2px solid s.$color-contrast;
 				outline-offset: 1em;

@@ -112,8 +112,7 @@
 .testimonials-section .testimonials-grid__wrapper .slider .slide__content--img img {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   border-radius: 3rem 0 3rem 0;
   filter: grayscale(100%);
   cursor: pointer;
@@ -223,8 +222,7 @@
     --width: 70%;
   }
   .testimonials-section .testimonials-grid__wrapper .slider .slide__content--text {
-    -moz-text-align-last: left;
-         text-align-last: left;
+    text-align-last: left;
   }
 }
 @media (min-width: 650px) {
@@ -267,4 +265,4 @@
   .testimonials-section .testimonials-grid__wrapper .slider .slide__content--text {
     width: 53%;
   }
-}/*# sourceMappingURL=testimonialspage.css.map */
+}

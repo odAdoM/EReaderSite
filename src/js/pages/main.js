@@ -81,8 +81,6 @@ function unblockedBody(backToPreviousScrollPosition = true) {
 
 window.addEventListener('load', () => {
 	if (cnt.classList.contains('index-container')) {
-		console.log('!!!!!!!!!!!!');
-
 		blockedBody();
 
 		setTimeout(() => {

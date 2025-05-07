@@ -52,8 +52,7 @@
   .about__content {
     --inside-inline: 5em;
     border: none;
-    -moz-column-gap: 5%;
-         column-gap: 5%;
+    column-gap: 5%;
     grid-auto-flow: column;
     grid-template: [num-start header-start] max-content [header-end] 0px [content-start num-end] auto [content-end btn-start] auto [btn-end]/[num-start btn-start content-start] 45% [num-end header-start] 1fr [header-end content-end btn-end];
   }
@@ -73,8 +72,7 @@
 @media (min-width: 800px) {
   .about__content {
     --inside-inline: 7em;
-    -moz-column-gap: 7%;
-         column-gap: 7%;
+    column-gap: 7%;
     grid-template: [num-start header-start] min-content [content-start header-end] 120px [num-end btn-start] auto [btn-end content-end]/[num-start btn-start] 35% [num-end btn-end header-start content-start] 1fr [header-end content-end];
   }
   .about__content .section-heading {
@@ -93,8 +91,7 @@
 }
 @media (min-width: 960px) {
   .about__content {
-    -moz-column-gap: 10%;
-         column-gap: 10%;
+    column-gap: 10%;
     grid-template-columns: [num-start btn-start] 40% [num-end btn-end header-start content-start] 1fr [header-end content-end];
   }
   .about__content .main-btn {
@@ -103,8 +100,7 @@
 }
 @media (min-width: 1200px) {
   .about__content {
-    -moz-column-gap: 12%;
-         column-gap: 12%;
+    column-gap: 12%;
   }
 }
 .books-list .book {
@@ -117,8 +113,7 @@
 .books-list .book img {
   max-width: 28rem;
   height: auto;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   filter: grayscale(100%);
   border-radius: 1rem;
   box-shadow: 0 1em 3em rgba(0, 0, 0, 0.4);
@@ -186,8 +181,7 @@
   width: 85%;
   aspect-ratio: 2/3;
   margin: 0 auto;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   filter: grayscale(100%);
   border-radius: 1rem;
   box-shadow: 0 1em 3em rgba(0, 0, 0, 0.4);
@@ -257,8 +251,7 @@
   }
   .books__content-list {
     display: grid;
-    -moz-column-gap: 5%;
-         column-gap: 5%;
+    column-gap: 5%;
     grid-template-columns: repeat(auto-fit, minmax(min(14rem, 100%), 1fr));
     padding: 0 4rem;
   }
@@ -410,9 +403,6 @@
 .footer__content-inside--form form .ta {
   padding-top: 1.4em;
 }
-.footer__content-inside--form form .input-group input::-moz-placeholder, .footer__content-inside--form form .ta::-moz-placeholder {
-  color: #686868;
-}
 .footer__content-inside--form form .input-group input::placeholder,
 .footer__content-inside--form form .ta::placeholder {
   color: #686868;
@@ -481,8 +471,7 @@
   }
   .footer__content-inside--social {
     width: 100%;
-    -moz-column-gap: 5%;
-         column-gap: 5%;
+    column-gap: 5%;
     margin-left: 0;
     margin-top: 7em;
     margin-bottom: 5em;
@@ -574,8 +563,7 @@
 .testimonials__content {
   height: 100%;
   display: grid;
-  -moz-column-gap: 2%;
-       column-gap: 2%;
+  column-gap: 2%;
   row-gap: 3rem;
   grid-template: "num" auto "header" auto "quote" auto "btn" auto/1fr;
 }
@@ -610,8 +598,7 @@
   justify-self: center;
   width: 50%;
   aspect-ratio: 1;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   border-radius: 2rem;
   border: 0.8rem solid #202020;
   filter: grayscale(100%);
@@ -806,10 +793,6 @@
     width: 60%;
   }
 }
-:root {
-  --color-blue: #32b0ce;
-}
-
 .content-grid {
   --padding-inline: 4rem;
   --content-max-width: 1200px;
@@ -837,8 +820,7 @@
 img.full-width {
   width: 100%;
   max-height: 45vh;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 *,
@@ -851,6 +833,18 @@ img.full-width {
   outline: none;
   scrollbar-width: thin;
   scrollbar-color: var(--color-blue) #212121;
+}
+
+.box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100px;
+  height: 100px;
+  border-radius: 8px;
+  background: linear-gradient(#32b0ce, #1d5766, #075c4a);
+  z-index: 100;
 }
 
 :root {
@@ -958,9 +952,6 @@ body::-webkit-scrollbar-track {
   letter-spacing: 0.25em;
   text-transform: uppercase;
   -webkit-tap-highlight-color: transparent;
-  /* &:focus {
-  	outline: none;
-  } */
 }
 .main-btn__inner {
   display: inline-block;
@@ -1081,8 +1072,7 @@ body::-webkit-scrollbar-track {
 .container .navigation .nav-left img {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   filter: grayscale(100%);
   opacity: 0.5;
   transition: filter 1s, opacity 0.8s;
@@ -1122,26 +1112,6 @@ body::-webkit-scrollbar-track {
   transition-timing-function: ease, ease-in;
   -webkit-tap-highlight-color: transparent;
 }
-.container .navigation .nav-right .nav-items a:last-child {
-  position: relative;
-  padding: 1rem 1rem 1rem 6rem;
-}
-.container .navigation .nav-right .nav-items a:last-child::before {
-  content: "";
-  position: absolute;
-  width: 4rem;
-  height: 0.2rem;
-  top: 50%;
-  left: 1rem;
-  transform: translateY(-50%);
-  background-color: #fff;
-  transition: background-color 0.3s;
-}
-@media (hover: hover) and (pointer: fine) {
-  .container .navigation .nav-right .nav-items a:last-child:hover::before {
-    background-color: var(--color-blue);
-  }
-}
 @media (hover: hover) and (pointer: fine) {
   .container .navigation .nav-right .nav-items a {
     transition-duration: 0.3s, 0.7s;
@@ -1176,6 +1146,26 @@ body::-webkit-scrollbar-track {
   border-bottom: 0.6rem solid transparent;
   border-left: 1.2rem solid var(--color-blue);
   opacity: 0;
+}
+.container .navigation .nav-right .nav-items a:last-child {
+  position: relative;
+  padding: 1rem 1rem 1rem 6rem;
+}
+.container .navigation .nav-right .nav-items a:last-child::before {
+  content: "";
+  position: absolute;
+  width: 4rem;
+  height: 0.2rem;
+  top: 50%;
+  left: 1rem;
+  transform: translateY(-50%);
+  background-color: #fff;
+  transition: background-color 0.3s;
+}
+@media (hover: hover) and (pointer: fine) {
+  .container .navigation .nav-right .nav-items a:last-child:hover::before {
+    background-color: var(--color-blue);
+  }
 }
 .container .navigation .nav-right .nav-items a:hover {
   color: var(--color-blue);
@@ -1304,9 +1294,6 @@ body::-webkit-scrollbar-track {
   left: 5rem;
   color: var(--color-blue);
   -webkit-tap-highlight-color: transparent;
-  /* &:focus {
-  	outline: none;
-  } */
 }
 .container .header .logo img {
   width: 5rem;
@@ -1464,4 +1451,4 @@ body::-webkit-scrollbar-track {
   .container .menu-icon::before {
     display: none;
   }
-}/*# sourceMappingURL=main.css.map */
+}
