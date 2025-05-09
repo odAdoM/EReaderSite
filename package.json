@@ -3,9 +3,11 @@
 	"version": "1.0.0",
 	"description": "",
 	"main": "index.js",
+	"type": "module",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
-		"deploy": "gh-pages -d dist"
+		"deploy": "gh-pages -d dist",
+		"gulp": "gulp"
 	},
 	"repository": {
 		"type": "git",
@@ -21,16 +23,15 @@
 	"devDependencies": {
 		"@babel/core": "^7.27.1",
 		"@babel/preset-env": "^7.27.2",
-		"babelify": "^10.0.0",
-		"browser-sync": "^3.0.3",
-		"browserify": "^17.0.1",
+		"@rollup/plugin-babel": "^6.0.4",
+		"@rollup/plugin-commonjs": "^28.0.3",
+		"@rollup/plugin-node-resolve": "^16.0.1",
+		"browser-sync": "^3.0.4",
 		"del": "^6.1.1",
 		"gh-pages": "^6.3.0",
 		"gulp": "^4.0.2",
 		"gulp-dart-sass": "^1.1.0",
-		"sass": "^1.79.4",
-		"vinyl-buffer": "^1.0.1",
-		"vinyl-source-stream": "^2.0.0"
+		"rollup": "^4.40.2"
 	},
 	"dependencies": {
 		"gsap": "^3.13.0"

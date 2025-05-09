@@ -78,6 +78,7 @@ function unblockedBody(backToPreviousScrollPosition = true) {
 }
 
 //--------------| loader |----------------
+const LOADER_TIME = 0; //3000;
 
 window.addEventListener('load', () => {
 	if (cnt.classList.contains('index-container')) {
@@ -85,10 +86,10 @@ window.addEventListener('load', () => {
 
 		setTimeout(() => {
 			loader.classList.add('hide');
-		}, 3000);
+		}, LOADER_TIME);
 		setTimeout(() => {
 			cnt.classList.add('show');
 			unblockedBody();
-		}, 2500);
+		}, LOADER_TIME - 500);
 	}
 });

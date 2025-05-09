@@ -26,17 +26,16 @@
 // 	outline: 3px dashed red !important;
 // }
 
-/* .box {
+.box {
 	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
+	top: 100vh;
+	left: 10%;
 	width: 50px;
 	height: 50px;
 	border-radius: 8px;
-	background: conic-gradient(red, orange, yellow, green, blue);
+	background: conic-gradient(red, orange, rgb(202, 49, 133), green, blue);
 	z-index: 100;
-} */
+}
 
 :root {
 	font-size: 62.5%;
