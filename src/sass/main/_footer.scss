@@ -10,10 +10,13 @@
 			text-align: center;
 			margin: 12em 0 6em;
 
-			.section-border::after {
-				left: 50%;
-				transform: translateX(-50%);
-			}
+			// .section-border {
+			// 	.blue-marker {
+			// 		opacity: 0;
+			// 		left: 50%;
+			// 		transform: translateX(-50%) scaleX(3) scaleY(0.5);
+			// 	}
+			// }
 		}
 
 		&-inside {

@@ -21,7 +21,13 @@ const paths = {
 export const clean = () => del([paths.dist]);
 
 export function styles() {
-	return src(paths.sass).pipe(sass().on('error', sass.logError)).pipe(dest(paths.cssDest)).pipe(bs.stream());
+	return (
+		src(['src/sass/**/*.scss', '!src/sass/**/_*.scss'])
+			.pipe(sass().on('error', sass.logError))
+			.pipe(dest(paths.cssDest))
+			// .pipe(bs.stream({ match: '**/*.css' }));
+			.on('end', () => bs.reload())
+	);
 }
 
 export function html() {

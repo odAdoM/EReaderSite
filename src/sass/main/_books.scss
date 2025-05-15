@@ -17,13 +17,7 @@
 			grid-area: header;
 			align-self: center;
 			justify-self: center;
-
 			text-align: right;
-
-			.section-border::after {
-				right: 0;
-				left: auto;
-			}
 		}
 
 		.section-num {
@@ -181,9 +175,6 @@
 	.books {
 		&__content {
 			gap: 10% 8%;
-			.books-header {
-				width: 100%;
-			}
 
 			&-list {
 				padding: 0 0em;

@@ -1,5 +1,7 @@
 @use './../settings' as s;
-
+.active-gsap {
+	background-color: red;
+}
 .about {
 	background-color: s.$color-dark-gray--darker-1;
 
