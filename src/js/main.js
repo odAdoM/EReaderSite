@@ -1,3 +1,5 @@
+import { LOADER_TIME } from './vars.js';
+
 //--------------| navigation |----------------
 
 const menuIcon = document.querySelector('.menu-icon');
@@ -78,7 +80,6 @@ function unblockedBody(backToPreviousScrollPosition = true) {
 }
 
 //--------------| loader |----------------
-const LOADER_TIME = 0; //3000;
 
 window.addEventListener('load', () => {
 	if (cnt.classList.contains('index-container')) {

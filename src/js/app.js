@@ -1,3 +1,5 @@
+import { LOADER_TIME } from './vars.js';
+
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { SplitText } from 'gsap/SplitText';
@@ -19,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		const tlHeader = gsap.timeline();
 
 		tlHeader
-			.fromTo(image, { opacity: 0 }, { opacity: 1, duration: 1.2 }, '+0.5')
+			.fromTo(image, { opacity: 0 }, { opacity: 1, duration: 1.2 }, LOADER_TIME > 0 ? LOADER_TIME / 1000 : 0.5)
 			.fromTo(
 				splitHeading.chars,
 				{

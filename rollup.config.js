@@ -21,6 +21,7 @@ export default Object.entries(entries).map(([outFile, inFile]) => ({
 		file: outFile,
 		format: 'iife',
 		sourcemap: true,
+		name: 'MyBundle',
 	},
 	plugins: [
 		resolve(),
