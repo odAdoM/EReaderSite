@@ -71,7 +71,7 @@ body::-webkit-scrollbar-track {
 .section-num {
 	span {
 		font-family: 'Cinzel', sans-serif;
-		font-size: clamp(12rem, 8.125vw + 9.4rem, 25rem); //25rem;
+		font-size: 20rem;
 		font-weight: 900;
 		line-height: 1;
 		background-image: url('./../images/text-bg-2.jpg');
@@ -679,6 +679,14 @@ body::-webkit-scrollbar-track {
 					transform: translateX(2em);
 				}
 			}
+		}
+	}
+}
+
+@media (min-width: 640px) {
+	.section-num {
+		span {
+			font-size: clamp(12rem, 8.125vw + 9.4rem, 25rem); //25rem;
 		}
 	}
 }
