@@ -4,9 +4,15 @@ import del from 'del';
 import sass from 'gulp-dart-sass';
 import { rollup } from 'rollup';
 import rollupConfig from './rollup.config.js';
+import cleanCSS from 'gulp-clean-css';
+import minimist from 'minimist';
+import gulpIf from 'gulp-if';
 
 const { src, dest, watch, series, parallel } = gulp;
 const bs = browserSync.create();
+
+const options = minimist(process.argv.slice(2));
+const isProd = options.prod === true;
 
 const paths = {
 	html: 'src/**/*.html',
@@ -24,6 +30,7 @@ export function styles() {
 	return (
 		src(['src/sass/**/*.scss', '!src/sass/**/_*.scss'])
 			.pipe(sass().on('error', sass.logError))
+			.pipe(gulpIf(isProd, cleanCSS()))
 			.pipe(dest(paths.cssDest))
 			// .pipe(bs.stream({ match: '**/*.css' }));
 			.on('end', () => bs.reload())
@@ -39,6 +46,8 @@ export function images() {
 }
 
 export async function js() {
+	process.env.BUILD = isProd ? 'production' : 'development';
+
 	for (const config of rollupConfig) {
 		const bundle = await rollup(config);
 		await bundle.write(config.output);
