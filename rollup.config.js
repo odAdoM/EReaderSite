@@ -8,31 +8,31 @@ import terser from '@rollup/plugin-terser';
 const inputDir = 'src/js';
 const outputDir = 'dist/js';
 
-const isProd = process.env.BUILD === 'production';
+export default function createConfig(isProd) {
+	const entries = fs
+		.readdirSync(inputDir)
+		.filter((file) => file.endsWith('.js'))
+		.reduce((acc, file) => {
+			acc[path.join(outputDir, file)] = path.join(inputDir, file);
+			return acc;
+		}, {});
 
-const entries = fs
-	.readdirSync(inputDir)
-	.filter((file) => file.endsWith('.js'))
-	.reduce((acc, file) => {
-		acc[path.join(outputDir, file)] = path.join(inputDir, file);
-		return acc;
-	}, {});
-
-export default Object.entries(entries).map(([outFile, inFile]) => ({
-	input: inFile,
-	output: {
-		file: outFile,
-		format: 'iife',
-		sourcemap: true,
-		name: 'MyBundle',
-	},
-	plugins: [
-		resolve(),
-		commonjs(),
-		babel({
-			babelHelpers: 'bundled',
-			presets: ['@babel/preset-env'],
-		}),
-		...(isProd ? [terser()] : []),
-	],
-}));
+	return Object.entries(entries).map(([outFile, inFile]) => ({
+		input: inFile,
+		output: {
+			file: outFile,
+			format: 'iife',
+			sourcemap: true,
+			name: 'MyBundle',
+		},
+		plugins: [
+			resolve(),
+			commonjs(),
+			babel({
+				babelHelpers: 'bundled',
+				presets: ['@babel/preset-env'],
+			}),
+			...(isProd ? [terser()] : []),
+		],
+	}));
+}

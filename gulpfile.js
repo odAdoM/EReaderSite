@@ -3,16 +3,13 @@ import browserSync from 'browser-sync';
 import del from 'del';
 import sass from 'gulp-dart-sass';
 import { rollup } from 'rollup';
-import rollupConfig from './rollup.config.js';
 import cleanCSS from 'gulp-clean-css';
 import minimist from 'minimist';
 import gulpIf from 'gulp-if';
+import createRollupConfig from './rollup.config.js';
 
 const { src, dest, watch, series, parallel } = gulp;
 const bs = browserSync.create();
-
-const options = minimist(process.argv.slice(2));
-const isProd = options.prod === true;
 
 const paths = {
 	html: 'src/**/*.html',
@@ -23,6 +20,9 @@ const paths = {
 	jsWatch: 'src/js/**/*.js',
 	dist: 'dist',
 };
+
+const options = minimist(process.argv.slice(2));
+const isProd = options.prod === true || options.production === true;
 
 export const clean = () => del([paths.dist]);
 
@@ -46,7 +46,7 @@ export function images() {
 }
 
 export async function js() {
-	process.env.BUILD = isProd ? 'production' : 'development';
+	const rollupConfig = createRollupConfig(isProd);
 
 	for (const config of rollupConfig) {
 		const bundle = await rollup(config);
