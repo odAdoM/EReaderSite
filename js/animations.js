@@ -8726,165 +8726,167 @@
     var sectionNumSpans = document.querySelectorAll('.section-num > span');
     var image = document.querySelector('.banner > h1');
     var texts = document.querySelector('.banner > h3');
-    var splitHeading = new SplitText(texts);
-    var masterTL = gsapWithCSS.timeline();
-    masterTL.add(createHeaderTimeline(image, splitHeading), LOADER_TIME / 1000 ).add(createBannerImageTimeline(image), '<+1');
-    setupResponsiveScrollTriggers();
-    window.addEventListener('resize', function () {
-      ScrollTrigger.getAll().forEach(function (trigger) {
-        return trigger.kill();
-      });
+    document.fonts.ready.then(function () {
+      var splitHeading = new SplitText(texts);
+      var masterTL = gsapWithCSS.timeline();
+      masterTL.add(createHeaderTimeline(image, splitHeading), LOADER_TIME / 1000 ).add(createBannerImageTimeline(image), '<+1');
       setupResponsiveScrollTriggers();
-      ScrollTrigger.refresh();
-    });
+      window.addEventListener('resize', function () {
+        ScrollTrigger.getAll().forEach(function (trigger) {
+          return trigger.kill();
+        });
+        setupResponsiveScrollTriggers();
+        ScrollTrigger.refresh();
+      });
 
-    //------------------------------------------------------------------------
+      //------------------------------------------------------------------------
 
-    function createHeaderTimeline(imageEl, splitTextInstance) {
-      var tlHeader = gsapWithCSS.timeline();
-      tlHeader.fromTo(imageEl, {
-        opacity: 0
-      }, {
-        opacity: 1,
-        duration: 1.2
-      }).fromTo(splitTextInstance.chars, {
-        opacity: 0,
-        scale: 0.1,
-        xPercent: function xPercent(index) {
-          return (index + 1) * 20;
-        },
-        yPercent: function yPercent(index) {
-          return (index + 1) * 10;
-        },
-        rotateZ: function rotateZ(index) {
-          return (index + 1) * 25;
-        }
-      }, {
-        opacity: 1,
-        xPercent: 0,
-        yPercent: 0,
-        rotateZ: 0,
-        duration: 0.6,
-        scale: 1,
-        ease: 'power2.out'
-      }, '<+0.6').fromTo('.banner > h4', {
-        opacity: 0,
-        y: 15
-      }, {
-        opacity: 1,
-        y: 0,
-        duration: 1,
-        ease: 'slow(0.5,0.5,false)'
-      });
-      return tlHeader;
-    }
-    function createBannerImageTimeline(imageEl) {
-      var tl = gsapWithCSS.timeline({
-        repeat: -1,
-        yoyo: true
-      });
-      tl.to(imageEl, {
-        backgroundPosition: function backgroundPosition() {
-          var xx = gsapWithCSS.utils.random(30, 65);
-          var yy = gsapWithCSS.utils.random(40, 60);
-          return "".concat(xx, "% ").concat(yy, "%");
-        },
-        duration: 4,
-        ease: 'power1.inOut'
-      });
-      return tl;
-    }
-    function setupResponsiveScrollTriggers() {
-      var mm = gsapWithCSS.matchMedia();
-      var changeDim = 640;
-      mm.add("(min-width: ".concat(changeDim - 1, "px)"), function () {
-        sectionNumSpans.forEach(function (el) {
-          return createZoomScrollTrigger(el, '20% 45%', '20% 25%');
+      function createHeaderTimeline(imageEl, splitTextInstance) {
+        var tlHeader = gsapWithCSS.timeline();
+        tlHeader.fromTo(imageEl, {
+          opacity: 0
+        }, {
+          opacity: 1,
+          duration: 1.2
+        }).fromTo(splitTextInstance.chars, {
+          opacity: 0,
+          scale: 0.1,
+          xPercent: function xPercent(index) {
+            return (index + 1) * 20;
+          },
+          yPercent: function yPercent(index) {
+            return (index + 1) * 10;
+          },
+          rotateZ: function rotateZ(index) {
+            return (index + 1) * 25;
+          }
+        }, {
+          opacity: 1,
+          xPercent: 0,
+          yPercent: 0,
+          rotateZ: 0,
+          duration: 0.6,
+          scale: 1,
+          ease: 'power2.out'
+        }, '<+0.6').fromTo('.banner > h4', {
+          opacity: 0,
+          y: 15
+        }, {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          ease: 'slow(0.5,0.5,false)'
         });
-        blueLines.forEach(function (line) {
-          createBlueLineTrigger(line, line.dataset.animateLine, 'top 75%', 'top 50%');
-        });
-      });
-      mm.add("(max-width: ".concat(changeDim, "px)"), function () {
-        sectionNumSpans.forEach(function (el) {
-          return createZoomScrollTrigger(el, '50% 55%', '50% 30%');
-        });
-        blueLines.forEach(function (line) {
-          createBlueLineTrigger(line, line.dataset.animateLine, 'top 90%', 'top 70%');
-        });
-      });
-    }
-    function createZoomScrollTrigger(el, start, end) {
-      //console.log('zoom');
-      return gsapWithCSS.fromTo(el, {
-        backgroundSize: '110%'
-      }, {
-        backgroundSize: '180%',
-        duration: 0.8,
-        ease: 'power2.inOut',
-        scrollTrigger: {
-          trigger: el,
-          start: start,
-          end: end,
-          toggleActions: 'restart none none reverse'
-          //invalidateOnRefresh: true,
-          //markers: true,
-        }
-      });
-    }
-    function createBlueLineTrigger(line) {
-      var direction = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'left';
-      var start = arguments.length > 2 ? arguments[2] : undefined;
-      var end = arguments.length > 3 ? arguments[3] : undefined;
-      if (!line) return;
-      var marker = line.querySelector('.blue-marker');
-      if (!marker) return;
-      var lineWidth = line.offsetWidth;
-      var markerWidth = marker.offsetWidth;
-      var xScaleBefore = 3;
-      var yScaleBefore = 0.5;
-      var xValueBefore = 0;
-      var xValueAfter = 0;
-      switch (direction) {
-        case 'left':
-          xValueBefore = lineWidth - markerWidth / 2 + markerWidth * xScaleBefore / 2;
-          xValueAfter = 0;
-          break;
-        case 'right':
-          xValueBefore = -(markerWidth * xScaleBefore) / 2 - markerWidth / 2;
-          xValueAfter = lineWidth - markerWidth;
-          break;
-        case 'center':
-          xValueBefore = xValueAfter = (lineWidth - markerWidth) / 2;
-          break;
+        return tlHeader;
       }
-      return gsapWithCSS.fromTo(marker, {
-        opacity: 0,
-        x: xValueBefore,
-        scaleX: xScaleBefore,
-        scaleY: yScaleBefore,
-        transformOrigin: 'center top'
-      }, {
-        x: xValueAfter,
-        opacity: 1,
-        scaleX: 1,
-        scaleY: 1,
-        scrollTrigger: {
-          trigger: marker,
-          start: start,
-          end: end,
-          scrub: true
-          // invalidateOnRefresh: true,
-          // markers: {
-          // 	startColor: 'orange',
-          // 	endColor: 'yellowgreen',
-          // 	fontSize: '12px',
-          // 	fontWeight: 'bold',
-          // 	indent: 20,
-          // },
+      function createBannerImageTimeline(imageEl) {
+        var tl = gsapWithCSS.timeline({
+          repeat: -1,
+          yoyo: true
+        });
+        tl.to(imageEl, {
+          backgroundPosition: function backgroundPosition() {
+            var xx = gsapWithCSS.utils.random(30, 65);
+            var yy = gsapWithCSS.utils.random(40, 60);
+            return "".concat(xx, "% ").concat(yy, "%");
+          },
+          duration: 4,
+          ease: 'power1.inOut'
+        });
+        return tl;
+      }
+      function setupResponsiveScrollTriggers() {
+        var mm = gsapWithCSS.matchMedia();
+        var changeDim = 640;
+        mm.add("(min-width: ".concat(changeDim - 1, "px)"), function () {
+          sectionNumSpans.forEach(function (el) {
+            return createZoomScrollTrigger(el, '20% 45%', '20% 25%');
+          });
+          blueLines.forEach(function (line) {
+            createBlueLineTrigger(line, line.dataset.animateLine, 'top 75%', 'top 50%');
+          });
+        });
+        mm.add("(max-width: ".concat(changeDim, "px)"), function () {
+          sectionNumSpans.forEach(function (el) {
+            return createZoomScrollTrigger(el, '50% 55%', '50% 30%');
+          });
+          blueLines.forEach(function (line) {
+            createBlueLineTrigger(line, line.dataset.animateLine, 'top 90%', 'top 70%');
+          });
+        });
+      }
+      function createZoomScrollTrigger(el, start, end) {
+        //console.log('zoom');
+        return gsapWithCSS.fromTo(el, {
+          backgroundSize: '110%'
+        }, {
+          backgroundSize: '180%',
+          duration: 0.8,
+          ease: 'power2.inOut',
+          scrollTrigger: {
+            trigger: el,
+            start: start,
+            end: end,
+            toggleActions: 'restart none none reverse'
+            //invalidateOnRefresh: true,
+            //markers: true,
+          }
+        });
+      }
+      function createBlueLineTrigger(line) {
+        var direction = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'left';
+        var start = arguments.length > 2 ? arguments[2] : undefined;
+        var end = arguments.length > 3 ? arguments[3] : undefined;
+        if (!line) return;
+        var marker = line.querySelector('.blue-marker');
+        if (!marker) return;
+        var lineWidth = line.offsetWidth;
+        var markerWidth = marker.offsetWidth;
+        var xScaleBefore = 3;
+        var yScaleBefore = 0.5;
+        var xValueBefore = 0;
+        var xValueAfter = 0;
+        switch (direction) {
+          case 'left':
+            xValueBefore = lineWidth - markerWidth / 2 + markerWidth * xScaleBefore / 2;
+            xValueAfter = 0;
+            break;
+          case 'right':
+            xValueBefore = -(markerWidth * xScaleBefore) / 2 - markerWidth / 2;
+            xValueAfter = lineWidth - markerWidth;
+            break;
+          case 'center':
+            xValueBefore = xValueAfter = (lineWidth - markerWidth) / 2;
+            break;
         }
-      });
-    }
+        return gsapWithCSS.fromTo(marker, {
+          opacity: 0,
+          x: xValueBefore,
+          scaleX: xScaleBefore,
+          scaleY: yScaleBefore,
+          transformOrigin: 'center top'
+        }, {
+          x: xValueAfter,
+          opacity: 1,
+          scaleX: 1,
+          scaleY: 1,
+          scrollTrigger: {
+            trigger: marker,
+            start: start,
+            end: end,
+            scrub: true
+            // invalidateOnRefresh: true,
+            // markers: {
+            // 	startColor: 'orange',
+            // 	endColor: 'yellowgreen',
+            // 	fontSize: '12px',
+            // 	fontWeight: 'bold',
+            // 	indent: 20,
+            // },
+          }
+        });
+      }
+    });
   });
 
 })();
