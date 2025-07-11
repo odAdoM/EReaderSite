@@ -94,7 +94,7 @@ slider.addEventListener('touchend', (e) => {
 });
 
 function handleSwipe() {
-	console.log('touch!');
+	//console.log('touch!');
 	const deltaX = endX - startX;
 	if (Math.abs(deltaX) > 40) {
 		// if (deltaX > 0) {

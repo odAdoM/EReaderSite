@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	}
 
 	function createZoomScrollTrigger(el, start, end) {
-		console.log('zoom');
+		//console.log('zoom');
 		return gsap.fromTo(
 			el,
 			{ backgroundSize: '110%' },
