@@ -8721,12 +8721,22 @@
   gsapWithCSS.registerPlugin(SplitText);
   gsapWithCSS.registerPlugin(ScrollTrigger);
   ScrollTrigger.killAll();
+  function waitForFonts() {
+    return new Promise(function (resolve) {
+      if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(resolve);
+      } else {
+        // fallback
+        setTimeout(resolve, 1000);
+      }
+    });
+  }
   document.addEventListener('DOMContentLoaded', function () {
-    var blueLines = document.querySelectorAll('.section-border');
-    var sectionNumSpans = document.querySelectorAll('.section-num > span');
-    var image = document.querySelector('.banner > h1');
-    var texts = document.querySelector('.banner > h3');
-    document.fonts.ready.then(function () {
+    waitForFonts().then(function () {
+      var blueLines = document.querySelectorAll('.section-border');
+      var sectionNumSpans = document.querySelectorAll('.section-num > span');
+      var image = document.querySelector('.banner > h1');
+      var texts = document.querySelector('.banner > h3');
       var splitHeading = new SplitText(texts);
       var masterTL = gsapWithCSS.timeline();
       masterTL.add(createHeaderTimeline(image, splitHeading), LOADER_TIME / 1000 ).add(createBannerImageTimeline(image), '<+1');
