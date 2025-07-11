@@ -39,7 +39,7 @@ function setIndex() {
 	clearAllDotsFromActive();
 	dotsWrapper.children[slideIndex].classList.add('active');
 
-	//setTimer();
+	setTimer();
 }
 
 dots.forEach((dot, index) => {
@@ -68,7 +68,7 @@ function setTimer() {
 	}, INTERVAL_TIME);
 }
 //==>
-//setTimer();
+setTimer();
 
 //to keep actual slide in the center od slider
 window.addEventListener('resize', () => {
@@ -80,7 +80,7 @@ window.addEventListener('resize', () => {
 
 // -----------------------------
 
-// Obsługa swipe
+// swipe vars
 let startX = 0;
 let endX = 0;
 
