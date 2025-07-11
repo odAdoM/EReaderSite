@@ -198,7 +198,6 @@
 @media (min-width: 830px) {
   .about-section__features {
     column-gap: 5%;
-    row-gap: 12%;
   }
   .about-section__features .feature {
     flex: 1;

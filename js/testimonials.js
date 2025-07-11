@@ -34,8 +34,7 @@
 	  slider.style.transform = "translateX(".concat(slideIndex * -w, "px)");
 	  clearAllDotsFromActive();
 	  dotsWrapper.children[slideIndex].classList.add('active');
-
-	  //setTimer();
+	  setTimer();
 	}
 	dots.forEach(function (dot, index) {
 	  dot.addEventListener('click', function () {
@@ -49,9 +48,18 @@
 	    dot.classList.remove('active');
 	  });
 	}
+
+	// -----------------------------
+
+	var INTERVAL_TIME = 5000;
 	var to;
+	function setTimer() {
+	  to = setTimeout(function () {
+	    goRight();
+	  }, INTERVAL_TIME);
+	}
 	//==>
-	//setTimer();
+	setTimer();
 
 	//to keep actual slide in the center od slider
 	window.addEventListener('resize', function () {
@@ -63,7 +71,7 @@
 
 	// -----------------------------
 
-	// Obsługa swipe
+	// swipe vars
 	var startX = 0;
 	var endX = 0;
 	slider.addEventListener('touchstart', function (e) {
