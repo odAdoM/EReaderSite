@@ -8815,7 +8815,7 @@
       });
     }
     function createZoomScrollTrigger(el, start, end) {
-      console.log('zoom');
+      //console.log('zoom');
       return gsapWithCSS.fromTo(el, {
         backgroundSize: '110%'
       }, {

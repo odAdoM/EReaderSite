@@ -82,7 +82,7 @@
 	  handleSwipe();
 	});
 	function handleSwipe() {
-	  console.log('touch!');
+	  //console.log('touch!');
 	  var deltaX = endX - startX;
 	  if (Math.abs(deltaX) > 40) {
 	    // if (deltaX > 0) {
