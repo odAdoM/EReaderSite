@@ -1,0 +1,35 @@
+:root {
+  --color-blue: #32b0ce;
+}
+
+.books-header {
+  background: linear-gradient(rgba(33, 33, 33, 0.7), rgba(33, 33, 33, 0.9) 80%), url("./../images/books-bg.jpg") center no-repeat;
+}
+
+.books-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10em 0;
+  background-color: #1e1e1e;
+}
+.books-section .books-list {
+  width: 70%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10em 5em;
+}
+
+.footer-books {
+  margin-top: -2rem;
+}
+
+@media (min-width: 900px) {
+  .books-section {
+    padding: 15rem 0;
+  }
+  .footer-books {
+    margin-top: 0rem;
+  }
+}

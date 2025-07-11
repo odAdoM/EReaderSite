@@ -1,0 +1,1 @@
+{"version":3,"file":"vars.js","sources":["../../src/js/vars.js"],"sourcesContent":["export const LOADER_TIME = 3000;\r\n"],"names":["LOADER_TIME"],"mappings":";;;AAAO,KAAMA,WAAW,GAAG;;;;;;;;;;"}
